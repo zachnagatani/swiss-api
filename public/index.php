@@ -11,6 +11,7 @@
 
     // API Hooks
     require_once('../app/api/matches/index.php');
+    require_once('../app/api/players/index.php');
 
     $app->run();
 ?>
