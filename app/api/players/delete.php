@@ -28,6 +28,7 @@
                 "Error" => True,
                 "Message" => $e->getMessage()
             );
+
             return $response->withJson($err);
         }
     });
