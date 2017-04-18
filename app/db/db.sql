@@ -8,8 +8,6 @@ CREATE TABLE players (
 CREATE TABLE matches (
     id INT(7) AUTO_INCREMENT PRIMARY KEY,
     round INT NOT NULL,
-    playerOne INT,
-    playerTwo INT,
-    winner INT,
-    loser INT
+    winner INT NOT NULL,
+    loser INT NOT NULL
 );
