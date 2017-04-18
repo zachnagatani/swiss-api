@@ -22,7 +22,7 @@
             $data = array(
                 "Success" => True,
                 "Error" => False,
-                "Message" => "Player added",
+                "Message" => "Here are the standings so far",
                 "Standings" => $players
             );
 

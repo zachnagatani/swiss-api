@@ -20,12 +20,23 @@
             $players = $stmt->fetchAll(PDO::FETCH_OBJ);
             $players = array_chunk($players, 2);
 
-            $data = array(
-                "Success" => True,
-                "Error" => False,
-                "Message" => "Player added",
-                "Standings" => $players
-            );
+            if ($players[0][0]->wins != $players[0][1]->wins) {
+                $winner = $players[0][0];
+                $data = array(
+                    "Success" => True,
+                    "Error" => False,
+                    "Winner" => True,
+                    "Info" => $winner
+                );
+            } else {
+                $data = array(
+                    "Success" => True,
+                    "Error" => False,
+                    "Winner" => False,
+                    "Message" => "Here are the next rounds pairings",
+                    "Pairings" => $players
+                );
+            }
 
             return $response->withJson($data);
         } catch (PDOException $e) {
