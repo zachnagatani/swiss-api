@@ -2,7 +2,7 @@
     use \Psr\Http\Message\ServerRequestInterface as Request;
     use \Psr\Http\Message\ResponseInterface as Response;
 
-    $app->get('/api/players/standings', function(Request $request, Response $response) {
+    $app->get('/api/players/pairings', function(Request $request, Response $response) {
         try {
             $db = Db::connect();
 
@@ -18,6 +18,7 @@
             $stmt->execute();
 
             $players = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $players = array_chunk($players, 2);
 
             $data = array(
                 "Success" => True,

@@ -3,4 +3,5 @@
     require_once('count.php');
     require_once('register.php');
     require_once('standings.php');
+    require_once('pairings.php');
 ?>
